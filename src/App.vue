@@ -15,7 +15,9 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import map from './map'
+import MarkerClusterer, {MarkerClustererOptions} from '@google/markerclustererplus'
+import outageCluster from './assets/outageCluster.png'
+import styles from "./styles";
 
 export default Vue.extend({
   name: "App",
@@ -65,9 +67,41 @@ export default Vue.extend({
     }
   },
   created() {
-    console.log(map)
+    console.log("created")
+    const map = new google.maps.Map(document.getElementById("map") as HTMLElement, {
+      center: {lat: -1.280682, lng: 36.7685158},
+      zoom: 11,
+      minZoom: 3,
+      maxZoom: 22,
+      mapTypeControl: false,
+      gestureHandling: 'greedy',
+      fullscreenControl: false,
+      zoomControl: false,
+      streetViewControl: false,
+      styles: styles as MapTypeStyle[]
+    });
     map.setCenter({lat: -28.024, lng: 140.887})
     map.setZoom(3)
+    const markers = this.locations.map(function(location) {
+      return new google.maps.Marker({
+        position: location,
+        label: "A"
+      });
+    })
+    console.log(outageCluster)
+    const options: MarkerClustererOptions = {
+      styles: [{
+        url: outageCluster,
+        height: 50,
+        width: 28,
+        anchorText: [22, 2],
+        textColor: '#000000',
+        textSize: 10,
+        fontWeight: 'bold'
+      }],
+      title: "Test"
+    }
+    new MarkerClusterer(map, markers, options)
     this.intervalId = setInterval(() => {
       if (this.weather.index === this.weather.data.length){
         this.weather.index = 0
@@ -77,6 +111,7 @@ export default Vue.extend({
     }, 5000)
   },
   beforeDestroy() {
+    console.log("destroyed")
     clearInterval(this.intervalId)
   }
 })
