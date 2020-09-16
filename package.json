@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/1091-saapp/1091-saapp.github.io#readme",
   "dependencies": {
+    "@google/markerclustererplus": "^5.1.0",
     "vue": "^2.6.12",
     "vue-hot-reload-api": "^2.3.4"
   },
