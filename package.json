@@ -1,0 +1,20 @@
+{
+  "name": "1091-saapp.github.io",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "parcel build src/index.html --public-url ./"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/1091-saapp/1091-saapp.github.io.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/1091-saapp/1091-saapp.github.io/issues"
+  },
+  "homepage": "https://github.com/1091-saapp/1091-saapp.github.io#readme"
+}
