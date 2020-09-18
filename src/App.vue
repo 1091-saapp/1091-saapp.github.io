@@ -66,8 +66,7 @@ export default Vue.extend({
       ]
     }
   },
-  created() {
-    console.log("created")
+  async created() {
     const map = new google.maps.Map(document.getElementById("map") as HTMLElement, {
       center: {lat: -1.280682, lng: 36.7685158},
       zoom: 11,
@@ -111,7 +110,6 @@ export default Vue.extend({
     }, 5000)
   },
   beforeDestroy() {
-    console.log("destroyed")
     clearInterval(this.intervalId)
   }
 })
