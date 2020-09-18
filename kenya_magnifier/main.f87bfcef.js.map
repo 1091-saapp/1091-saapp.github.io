@@ -1,1 +1,0 @@
-{"version":3,"sources":["main.ts"],"names":[],"mappings":";AAAA,aAAA,IAAI,OAAO,KAAK,IAAI,SAAS,eAAe,OAAuB,CAC/D,OAAQ,CAAC,IAAK,GAAI,KAAM,KACxB,KAAM","file":"main.f87bfcef.js","sourceRoot":"..\\src","sourcesContent":["new google.maps.Map(document.getElementById(\"map\") as HTMLElement, {\r\n    center: {lat: 30, lng: -110},\r\n    zoom: 8\r\n});"]}
